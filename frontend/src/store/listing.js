@@ -39,19 +39,21 @@ export const getOneListing = (id) => async (dispatch) => {
 const initialState = {};
 
 const listingReducer = ( state = initialState, action) => {
-    let newState;
+    let newState = {};
 
     switch (action.type) {
         case LOAD_LISTING: {
-            newState = {...state}
-            action.places.forEach(place => {
+            // newState = {...state}
+            action.places.forEach((place) => {
                 newState[place.id] = place;
             });
 
             return newState;
         }
         case SINGLE_LISTING: {
-            newState = {...state, [action.place.id]: action.place}
+            const newState = {
+                ...state,
+                [action.place.id]: action.place}
             return newState;
         }
 
