@@ -1,7 +1,7 @@
 import { csrfFetch } from "./csrf";
 
 const LOAD_LISTING = "listings/LOAD";
-const SINGLE_LISTING = "listings/SINGLE_LISTING"
+const SINGLE_LISTING = "listings/SINGLE_LISTING";
 
 const load = (places) => {
     return {
@@ -39,7 +39,7 @@ export const getOneListing = (id) => async (dispatch) => {
 const initialState = {};
 
 const listingReducer = ( state = initialState, action) => {
-    let newState = {};
+    let newState = {...state};
 
     switch (action.type) {
         case LOAD_LISTING: {
