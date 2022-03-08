@@ -1,4 +1,7 @@
-const LOAD_LISTING = "listings/LOAD"
+import { csrfFetch } from "./csrf";
+
+const LOAD_LISTING = "listings/LOAD";
+const SINGLE_LISTING = "listings/SINGLE_LISTING"
 
 const load = (places) => {
     return {
@@ -7,8 +10,15 @@ const load = (places) => {
     }
 }
 
+const oneListing = (place) => {
+    return {
+        type: SINGLE_LISTING,
+        place
+    }
+}
+
 export const getListings = () => async (dispatch) => {
-    const response = await fetch(`/api/listings`);
+    const response = await csrfFetch(`/api/listings`);
   if (response.ok) {
     const places = await response.json();
     // console.log(list);
@@ -16,6 +26,15 @@ export const getListings = () => async (dispatch) => {
     return places;
   }
 };
+
+export const getOneListing = (id) => async (dispatch) => {
+    const response = await csrfFetch(`/api/listings/${id}`)
+
+    if (response.ok) {
+        const place = await response.json()
+        dispatch(oneListing(place));
+    }
+}
 
 const initialState = {};
 
@@ -29,6 +48,10 @@ const listingReducer = ( state = initialState, action) => {
                 newState[place.id] = place;
             });
 
+            return newState;
+        }
+        case SINGLE_LISTING: {
+            newState = {...state, [action.place.id]: action.place}
             return newState;
         }
 
