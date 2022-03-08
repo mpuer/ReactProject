@@ -4,6 +4,7 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Listings', [{
       userId: 1,
+      title: "testing 1",
       address: "Eitrheimsvegen 65, 5750",
       city: "Odda",
       state: "Ullensvang",
@@ -15,6 +16,7 @@ module.exports = {
       updatedAt: new Date()
     }, {
       userId: 1,
+      title: "testing 2",
       address: "Maelsvegen 299, 5628",
       city: "Herand",
       state: "Ullensvang",
@@ -27,6 +29,7 @@ module.exports = {
     },
     {
       userId: 2,
+      title: "testing 3",
       address: "125 Rue des Vergers",
       city: "Villersexel",
       state: "Franche-Comte",
@@ -39,6 +42,7 @@ module.exports = {
     },
     {
       userId: 2,
+      title: "testing 4",
       address: "599 Rte de la Griaz",
       city: "Les Houches",
       state: "Auvergne-Rhône-Alpes",
@@ -51,6 +55,7 @@ module.exports = {
     },
     {
       userId: 3,
+      title: "testing 5",
       address: "822 Via Aurelia",
       city: "Rosignano Solvay-Castiglioncello",
       state: "Tuscany",
@@ -63,6 +68,7 @@ module.exports = {
     },
     {
       userId: 3,
+      title: "testing 6",
       address: "Via Mortelle, 54",
       city: "Torre del Greco",
       state: "Campania",
