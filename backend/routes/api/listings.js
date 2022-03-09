@@ -72,4 +72,13 @@ router.put('/:id', listingValidators, asyncHandler( async (req, res) => {
   
 }))
 
+router.delete("/:id", asyncHandler( async(req, res) => {
+  const listing = await Listing.findByPk(req.params.id);
+
+  if (!listing) throw new Error("Unable to delete! This is the route!!");
+
+  listing.destroy();
+  return res.json(listing);
+}))
+
 module.exports = router;

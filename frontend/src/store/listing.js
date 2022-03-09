@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf";
 const LOAD_LISTING = "listings/LOAD";
 const SINGLE_LISTING = "listings/SINGLE_LISTING";
 const UPDATE_LISTING = "listings/UPDATE";
+const REMOVE_LISTING = "listings/REMOVE";
 
 
 const load = (places) => {
@@ -26,6 +27,13 @@ const update = (listing) => {
     }
 }
 
+const remove = (listing) => {
+    return {
+        type: REMOVE_LISTING,
+        listing
+    }
+}
+
 export const getListings = () => async (dispatch) => {
     const response = await csrfFetch(`/api/listings`);
   if (response.ok) {
@@ -36,8 +44,8 @@ export const getListings = () => async (dispatch) => {
   }
 };
 
-export const getOneListing = (id) => async (dispatch) => {
-    const response = await csrfFetch(`/api/listings/${id}`)
+export const getOneListing = (listing) => async (dispatch) => {
+    const response = await csrfFetch(`/api/listings/${listing.id}`)
 
     if (response.ok) {
         const place = await response.json()
@@ -58,6 +66,19 @@ export const updateListing = (listing) => async (dispatch) => {
         const updated = await response.json();
         dispatch(update(updated));
         return updated;
+    }
+}
+
+export const removeListing = (listing) => async (dispatch) => {
+    const response = await csrfFetch(`/api/listing/${listing.id}`, {
+        method: "DELETE",
+        body: JSON.stringify({listing})
+    })
+
+    if (response.ok) {
+        const listing = await response.json();
+        dispatch(remove(listing));
+        return listing;
     }
 }
 
@@ -87,6 +108,11 @@ const listingReducer = ( state = initialState, action) => {
                 [action.listing.id]: action.listing
             };
         };
+        case REMOVE_LISTING: {
+            newState = {...state};
+            delete newState[action.listing.id]
+            return newState
+        }
 
         default:
             return state;
