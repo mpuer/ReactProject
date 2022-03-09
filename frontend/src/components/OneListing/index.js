@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 
 import { getOneListing } from "../../store/listing";
+import EditListingModal from "../../components/EditListingModal";
+
 
 
 const OneListing = () => {
@@ -19,7 +21,17 @@ const OneListing = () => {
     }, [dispatch, id])
 
     return (
-        <div>{listing.address}</div>
+        <div>
+            <h3>{listing.title}</h3>
+            <div>{listing.address}</div>
+            <div>{listing.city}</div>
+            <div>{listing.state}</div>
+            <div>{listing.country}</div>
+            <div>{listing.price}</div>
+            <img alt="" src={`${listing.image}`}></img>
+            <EditListingModal/>
+            
+        </div>
     )
 
 }

@@ -2,6 +2,8 @@ import { csrfFetch } from "./csrf";
 
 const LOAD_LISTING = "listings/LOAD";
 const SINGLE_LISTING = "listings/SINGLE_LISTING";
+const UPDATE_LISTING = "listings/UPDATE";
+
 
 const load = (places) => {
     return {
@@ -14,6 +16,13 @@ const oneListing = (place) => {
     return {
         type: SINGLE_LISTING,
         place
+    }
+}
+
+const update = (listing) => {
+    return {
+        type: UPDATE_LISTING,
+        listing
     }
 }
 
@@ -33,6 +42,22 @@ export const getOneListing = (id) => async (dispatch) => {
     if (response.ok) {
         const place = await response.json()
         dispatch(oneListing(place));
+    }
+}
+
+export const updateListing = (listing) => async (dispatch) => {
+    const response = await csrfFetch(`/api/listings/${listing.id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(listing)
+    });
+
+    if (response.ok) {
+        const updated = await response.json();
+        dispatch(update(updated));
+        return updated;
     }
 }
 
@@ -56,6 +81,12 @@ const listingReducer = ( state = initialState, action) => {
                 [action.place.id]: action.place}
             return newState;
         }
+        case UPDATE_LISTING: {
+            return {
+                ...state,
+                [action.listing.id]: action.listing
+            };
+        };
 
         default:
             return state;

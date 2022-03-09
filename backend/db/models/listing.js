@@ -1,4 +1,7 @@
 'use strict';
+
+// const { DATEONLY } = require("sequelize/types");
+
 module.exports = (sequelize, DataTypes) => {
   const Listing = sequelize.define('Listing', {
     userId: DataTypes.INTEGER,
@@ -7,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     city: DataTypes.STRING,
     state: DataTypes.STRING,
     country: DataTypes.STRING,
+    price: DataTypes.INTEGER,
     image: DataTypes.TEXT,
     description: DataTypes.TEXT
   }, {});
