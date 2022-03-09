@@ -70,15 +70,15 @@ export const updateListing = (listing) => async (dispatch) => {
 }
 
 export const removeListing = (listing) => async (dispatch) => {
-    const response = await csrfFetch(`/api/listing/${listing.id}`, {
+    const response = await csrfFetch(`/api/listings/${listing.id}`, {
         method: "DELETE",
-        body: JSON.stringify({listing})
+        // body: JSON.stringify({listing})
     })
 
     if (response.ok) {
         const listing = await response.json();
         dispatch(remove(listing));
-        return listing;
+        // return listing;
     }
 }
 
@@ -109,7 +109,7 @@ const listingReducer = ( state = initialState, action) => {
             };
         };
         case REMOVE_LISTING: {
-            newState = {...state};
+            let newState = {...state};
             delete newState[action.listing.id]
             return newState
         }

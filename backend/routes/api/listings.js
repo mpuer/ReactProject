@@ -77,7 +77,7 @@ router.delete("/:id", asyncHandler( async(req, res) => {
 
   if (!listing) throw new Error("Unable to delete! This is the route!!");
 
-  listing.destroy();
+  await listing.destroy();
   return res.json(listing);
 }))
 

@@ -15,8 +15,8 @@ const OneListing = () => {
 
     const { id } = useParams();
     // console.log("this is the id!", id)
-    const listingId = parseInt(id)
-    const listing = useSelector(state => state.listings[listingId]);
+    // const listingId = parseInt(id)
+    const listing = useSelector(state => state.listings[id]);
     // console.log("this is the listing!!", listing)
     
 
@@ -32,7 +32,7 @@ const OneListing = () => {
 
     useEffect(() => {
         dispatch(getOneListing(listing));
-    }, [dispatch, id])
+    }, [dispatch])
 
     return (
         <div>
