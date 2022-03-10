@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
-
+import "./singlelisting.css"
 import { getOneListing } from "../../store/listing";
 import { removeListing } from "../../store/listing";
 import EditListingModal from "../../components/EditListingModal";
@@ -16,6 +16,7 @@ const OneListing = () => {
     const { id } = useParams();
     // console.log("this is the id!", id)
     // const listingId = parseInt(id)
+    console.log("this is the id", id)
     const listing = useSelector(state => state.listings[id]);
     // console.log("this is the listing!!", listing)
     
@@ -31,25 +32,48 @@ const OneListing = () => {
     }
 
     useEffect(() => {
-        dispatch(getOneListing(listing));
+        console.log("this is the listing", listing)
+        dispatch(getOneListing(id));
     }, [dispatch])
 
     return (
         <div>
-            <h3>{listing.title}</h3>
-            <div>{listing.address}</div>
-            <div>{listing.city}</div>
-            <div>{listing.state}</div>
-            <div>{listing.country}</div>
-            <div>{listing.price}</div>
-            <img alt="" src={`${listing.image}`}></img>
-            {(sessionUser.id === listing.userId) &&
-            <>
-            <EditListingModal/>
-            <button type="submit" onClick={deleteListing}>Delete</button>
-            </>
-            }
-            
+            <div className="current-listing-container">
+                <h3>{listing?.title}</h3>
+                <img className="single-listing-image" alt="" src={`${listing?.image}`}></img>
+                <div className="single-listing-address-details">
+                    <div className="single-listing-individual-fields">
+                        <div>Street address:</div> 
+                        <div className="single-listing-values">{listing?.address}</div>
+                    </div>
+                    <div className="single-listing-individual-fields">
+                        <div>City or town: </div>
+                        <div className="single-listing-values">{listing?.city}</div>
+                    </div>
+                    <div className="single-listing-individual-fields">
+                        <div>State or province: </div>
+                        <div className="single-listing-values">{listing?.state}</div>
+                    </div>
+                    <div className="single-listing-individual-fields">
+                        <div>Country: </div>
+                    <   div className="single-listing-values">{listing?.country}</div>
+                    </div>
+                    <div className="single-listing-individual-fields">
+                        <div>Nightly rate: </div>
+                        <div className="single-listing-values">${listing?.price}</div>
+
+                    </div>
+                    <div className="single-listing-individual-fields">
+                        <div className="listing-description">{listing.description}</div>
+                    </div>
+                </div>
+                {(sessionUser.id === listing?.userId) &&
+                <>
+                <EditListingModal/>
+                <button type="submit" className="create-listing-button" onClick={deleteListing}>Delete</button>
+                </>
+                }
+            </div>   
         </div>
     )
 

@@ -1,0 +1,30 @@
+.edit-form-container {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-listing-fields {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 0px 10px;
+}
+
+.edit-listing-buttons {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+.create-listing-button {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    width: 100px;
+    height: 35px;
+    margin-bottom: 5px;
+}

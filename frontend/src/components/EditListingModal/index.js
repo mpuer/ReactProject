@@ -8,7 +8,7 @@ function EditListingModal() {
 
     return (
         <>
-          <button onClick={() => setShowModal(true)}>Edit Your Listing</button>
+          <button className="create-listing-button" onClick={() => setShowModal(true)}>Edit Your Listing</button>
           {showModal && (
             <Modal onClose={() => setShowModal(false)}>
               <EditListingForm setShowModal={setShowModal}/>

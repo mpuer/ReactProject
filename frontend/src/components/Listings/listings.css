@@ -1,0 +1,72 @@
+* {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+}
+
+.all-listings-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 80px;
+    background-color: black;
+    border-radius: 5px;
+    padding-top: 10px;
+
+}
+
+.current-listings-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: white; */
+}
+
+.single-listing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    width: 450px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 40px 0px 10px;
+    margin: 10px 0px 10px;
+    background-color: white;
+
+}
+
+.image-container {
+    width: 350px;
+    height: 230px;
+    padding-bottom: 10px;
+}
+
+.listing-image {
+    width: 350px;
+    /* height: 230px; */
+    /* height: 150px; */
+    max-width: 350px;
+    max-height: 230px;
+}
+
+.single-listing-details {
+    padding-top: 3px;
+}
+
+.citycountry-and-price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.city-country {
+    font-weight: bold;
+}
+
+.listing-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

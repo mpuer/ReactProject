@@ -27,17 +27,18 @@ function ProfileButton({ user }) {
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
+    // return <Redirect to="/"/>
   };
 
   return (
     <>
       <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+      <i className="fa-solid fa-address-card"></i>
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
-          <li>{user.username}</li>
-          <li>{user.email}</li>
+          <li className="nav-text">Hello, {user.username}</li>
+          <li className="nav-text">{user.email}</li>
           <li>
             <button onClick={logout}>Log Out</button>
           </li>

@@ -1,0 +1,43 @@
+* {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+}
+
+.current-listing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.single-listing-image {
+    display: flex;
+    max-width: 800px;
+    margin-bottom: 10px;
+}
+
+.single-listing-individual-fields {
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+    justify-content: space-between;
+}
+
+.single-listing-values {
+    font-weight: bolder;
+}
+
+.listing-description {
+    padding-top: 20px;
+}
+
+.create-listing-button {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    width: 100px;
+    height: 35px;
+    margin-bottom: 5px;
+}

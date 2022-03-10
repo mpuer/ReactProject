@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { useParams } from "react-router-dom";
 import { updateListing } from "../../store/listing";
+import "./editlisting.css"
 
 
 function EditListingForm({setShowModal}) {
@@ -173,8 +174,10 @@ function EditListingForm({setShowModal}) {
                         />
                     </label>
                 </div>
-                <button type="submit">Edit</button>
-                <button type="button" onClick={cancelEdit}>Cancel</button>
+                <div className="edit-listing-buttons">
+                    <button className="create-listing-button" type="submit">Edit</button>
+                    <button className="create-listing-button" type="button" onClick={cancelEdit}>Cancel</button>
+                </div>
             </form>
         </div>
     );

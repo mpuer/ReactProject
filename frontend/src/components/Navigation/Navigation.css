@@ -1,0 +1,46 @@
+* {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    /* color: black; */
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    /* align-items: flex-end; */
+    /* border: 1px solid black; */
+    list-style-type: none;
+    height: 80px;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    padding-left: 0px;
+    position: sticky;
+    top: 0;
+    
+}
+
+
+.nav-text {
+    color: white;
+    list-style-type: none;
+}
+
+
+.nav-text-logo {
+    color: white;
+    font-size: 35px;
+}
+
+.barebnb-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* position: relative; */
+}
+
+.airbnb-logo {
+    width: 40px;    
+}

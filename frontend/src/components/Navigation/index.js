@@ -11,7 +11,10 @@ function Navigation({ isLoaded }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
+      <>
+      <NavLink className="nav-text" exact to="/listings">Listings  </NavLink>
       <ProfileButton user={sessionUser} />
+      </>
     );
   } else {
     sessionLinks = (
@@ -23,9 +26,15 @@ function Navigation({ isLoaded }){
   }
 
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/">Home</NavLink>
+    <ul className='nav-container'>
+      <li className='barebnb-logo'>
+        <img className="airbnb-logo" src="/airbnb-64.png"></img>
+        <div className="nav-text-logo">barebnb</div>
+      </li>
+      <li className='home-link'>
+        <NavLink className="nav-text" exact to="/">Home</NavLink>
+      </li>
+      <li className='loggedin-nav'>
         {isLoaded && sessionLinks}
       </li>
     </ul>

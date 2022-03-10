@@ -8,7 +8,7 @@ function CreateListingModal() {
 
     return (
         <>
-          <button onClick={() => setShowModal(true)}>Create a listing!</button>
+          <button className="listing-new-button" onClick={() => setShowModal(true)}>CREATE A LISTING</button>
           {showModal && (
             <Modal onClose={() => setShowModal(false)}>
               <CreateListingForm setShowModal={setShowModal}/>
