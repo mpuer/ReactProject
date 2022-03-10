@@ -81,4 +81,14 @@ router.delete("/:id", asyncHandler( async(req, res) => {
   return res.json(listing);
 }))
 
+
+router.post("/", listingValidators, asyncHandler( async (req, res) => {
+  const { userId, title, address, city, state, country, price, image, description} = req.body;
+  const listing = await Listing.create({
+    userId, title, address, city, state, country, price, image, description
+  })
+
+  return res.json(listing);
+
+}));
 module.exports = router;

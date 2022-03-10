@@ -1,18 +1,24 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { getListings } from "../../store/listing";
+import CreateListingModal from "../CreateListingModal";
 
 const ListingViewer = () => {
     const dispatch = useDispatch();
+    const sessionUser = useSelector((state) => state.session.user)
 
     const listings = useSelector(state => state.listings);
     const listingsArr = Object.values(listings);
     
-
     useEffect(() => {
         dispatch(getListings());
-    }, [dispatch]);
+    }, [dispatch, sessionUser]);
+    
+    if (!sessionUser) {
+        alert("Please sign in or create an account to see listings.");
+        return <Redirect to="/"/>
+    }
 
     if (!listings) {
         return null;
@@ -30,6 +36,8 @@ const ListingViewer = () => {
 
 
             </div>
+            {sessionUser &&
+            <CreateListingModal/>}
         </div>
     );
 };

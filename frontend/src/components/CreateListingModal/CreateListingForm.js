@@ -1,26 +1,24 @@
-import React, {useEffect, useState} from "react";
-import { useDispatch, useSelector} from "react-redux";
-import { useParams } from "react-router-dom";
-import { updateListing } from "../../store/listing";
+import React, { useState} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
+import { createListing } from "../../store/listing";
 
-function EditListingForm({setShowModal}) {
+function CreateListingForm({setShowModal}) {
     const dispatch = useDispatch();
-
-    const {id} = useParams();
-    const listing = useSelector(state => state.listings[id]);
+    const history = useHistory();
 
     const sessionUser = useSelector((state) => state.session.user);
-    const sessionId = sessionUser.id;
+    const userId = sessionUser.id;
 
-    const [title, setTitle] = useState(listing.title);
-    const [address, setAddress] = useState(listing.address);
-    const [city, setCity] = useState(listing.city);
-    const [state, setState] = useState(listing.state);
-    const [country, setCountry] = useState(listing.country);
-    const [price, setPrice] = useState(listing.price);
-    const [image, setImage] = useState(listing.image);
-    const [description, setDescription] = useState(listing.description);
+    const [title, setTitle] = useState('');
+    const [address, setAddress] = useState('');
+    const [city, setCity] = useState('');
+    const [state, setState] = useState('');
+    const [country, setCountry] = useState('listing.country');
+    const [price, setPrice] = useState();
+    const [image, setImage] = useState('');
+    const [description, setDescription] = useState('');
     const [errors, setErrors] = useState([]);
 
     const updateTitle = (e) => setTitle(e.target.value);
@@ -32,27 +30,9 @@ function EditListingForm({setShowModal}) {
     const updateImage = (e) => setImage(e.target.value);
     const updateDescription = (e) => setDescription(e.target.value);
 
-
-    useEffect(() => {
-        let errors = [];
-        if (!title) errors.push("Please provide a title!")
-        if (!address) errors.push("Please provide an address!")
-        if (!city) errors.push("Please provide a city!")
-        if (!state) errors.push("Please provide a state!")
-        if (!country) errors.push("Please provide a country!")
-        if (!price) errors.push("Please provide a price!")
-        if (!image) errors.push("Please provide an image url!")
-        if (!description) errors.push("Please provide a description!")
-        
-        setErrors(errors);
-    },[title, address, city, state, country, price, image, description]);
-
-    const submitEdit = async (e) => {
+    const submitCreate =async (e) => {
         e.preventDefault();
-
-        const listing = {
-            id: id,
-            sessionId,
+        const listing = {userId,
             title,
             address,
             city,
@@ -60,33 +40,36 @@ function EditListingForm({setShowModal}) {
             country,
             price,
             image,
-            description
-        }
+            description}
 
-        const listingDispatch = await dispatch(updateListing(listing))
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.errors) return setErrors(data.errors);
-            });
+            const newListing = await dispatch(createListing(listing))
+                .catch(async (res) => {
+                    const data = await res.json();
+                    if (data && data.errors) setErrors(data.errors);
 
-            if (listingDispatch) {
-                setShowModal(false);
+
+            })
+
+            if (newListing) {
+                history.push("/listings")
+                setShowModal(false)
             }
     }
 
-    const cancelEdit = (e) => {
+    const cancelCreate = (e) => {
         e.preventDefault();
         setShowModal(false);
     }
 
+
     return (
-        <div className='edit-form-container'>
-            <form onSubmit={submitEdit} className='listing-edit-form'>
+        <div className='create-form-container'>
+            <form onSubmit={submitCreate} className='listing-create-form'>
                 <ul className="errors">
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
-                <div className="edit-field-container">
-                    <label className='edit-listing-fields'>
+                <div className="create-field-container">
+                    <label className='create-listing-fields'>
                         Title
                         <input
                             type="text"
@@ -96,8 +79,8 @@ function EditListingForm({setShowModal}) {
                         />
                     </label>
                 </div>
-                <div className="edit-field-container">
-                    <label className='edit-listing-fields'>
+                <div className="create-field-container">
+                    <label className='create-listing-fields'>
                         Address
                         <input
                             type="text"
@@ -107,8 +90,8 @@ function EditListingForm({setShowModal}) {
                         />
                     </label>
                 </div>
-                <div className="edit-field-container">
-                    <label className='edit-listing-fields'>
+                <div className="create-field-container">
+                    <label className='create-listing-fields'>
                         City
                         <input
                             type="text"
@@ -118,8 +101,8 @@ function EditListingForm({setShowModal}) {
                         />
                     </label>
                 </div>
-                <div className="edit-field-container">
-                    <label className='edit-listing-fields'>
+                <div className="create-field-container">
+                    <label className='create-listing-fields'>
                         State
                         <input
                             type="text"
@@ -129,8 +112,8 @@ function EditListingForm({setShowModal}) {
                         />
                     </label>
                 </div>
-                <div className="edit-field-container">
-                    <label className='edit-listing-fields'>
+                <div className="create-field-container">
+                    <label className='create-listing-fields'>
                         Country
                         <input
                             type="text"
@@ -140,8 +123,8 @@ function EditListingForm({setShowModal}) {
                         />
                     </label>
                 </div>
-                <div className="edit-field-container">
-                    <label className='edit-listing-fields'>
+                <div className="create-field-container">
+                    <label className='create-listing-fields'>
                         Price
                         <input
                             type="number"
@@ -151,8 +134,8 @@ function EditListingForm({setShowModal}) {
                         />
                     </label>
                 </div>
-                <div className="edit-field-container">
-                    <label className='edit-listing-fields'>
+                <div className="create-field-container">
+                    <label className='create-listing-fields'>
                         Image
                         <input
                             type="text"
@@ -162,8 +145,8 @@ function EditListingForm({setShowModal}) {
                         />
                     </label>
                 </div>
-                <div className="edit-field-container">
-                    <label className='edit-listing-fields'>
+                <div className="create-field-container">
+                    <label className='create-listing-fields'>
                         Description
                         <input
                             type="text"
@@ -173,8 +156,8 @@ function EditListingForm({setShowModal}) {
                         />
                     </label>
                 </div>
-                <button type="submit">Edit</button>
-                <button type="button" onClick={cancelEdit}>Cancel</button>
+                <button type="submit">Create</button>
+                <button type="button" onClick={cancelCreate}>Cancel</button>
             </form>
         </div>
     );
@@ -182,8 +165,6 @@ function EditListingForm({setShowModal}) {
 
 
 
-
 }
 
-
-export default EditListingForm;
+export default CreateListingForm;

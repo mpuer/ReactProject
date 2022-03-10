@@ -4,6 +4,7 @@ const LOAD_LISTING = "listings/LOAD";
 const SINGLE_LISTING = "listings/SINGLE_LISTING";
 const UPDATE_LISTING = "listings/UPDATE";
 const REMOVE_LISTING = "listings/REMOVE";
+const CREATE_LISTING = "listings/CREATE";
 
 
 const load = (places) => {
@@ -30,6 +31,13 @@ const update = (listing) => {
 const remove = (listing) => {
     return {
         type: REMOVE_LISTING,
+        listing
+    }
+}
+
+const create = (listing) => {
+    return {
+        type: CREATE_LISTING,
         listing
     }
 }
@@ -82,6 +90,23 @@ export const removeListing = (listing) => async (dispatch) => {
     }
 }
 
+export const createListing = (listing) =>  async (dispatch) => {
+    const response = await csrfFetch("/api/listings", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(listing)
+    })
+
+    if (response.ok) {
+        const addListing = await response.json();
+        dispatch(create(addListing));
+        return addListing;
+
+    }
+}
+
 const initialState = {};
 
 const listingReducer = ( state = initialState, action) => {
@@ -112,6 +137,11 @@ const listingReducer = ( state = initialState, action) => {
             let newState = {...state};
             delete newState[action.listing.id]
             return newState
+        }
+        case CREATE_LISTING: {
+            const newState = {...state};
+            newState[action.listing.id] = action.listing;
+            return newState;
         }
 
         default:
