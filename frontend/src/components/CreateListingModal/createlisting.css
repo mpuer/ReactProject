@@ -1,0 +1,78 @@
+* {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+}
+
+.listing-create-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.create-form-container {
+    width:500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    justify-items: center;
+    border-radius: 5px;
+    /* align-items: center; */
+}
+
+.create-field-container {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    column-gap: 2em;
+    align-items: center;
+    /* align-items: center; */
+    /* align-items: stretch; */
+    padding: 10px 10px;
+    /* margin-: 2em; */
+}
+
+
+.create-listing-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 250px;
+    /* text-align: right; */
+    /* position: absolute; */
+    right: 2em;
+}
+
+.create-listing-desc {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 250px;
+    height: 80px;
+    /* text-align: right; */
+    /* position: absolute; */
+    right: 2em;
+}
+
+
+.create-listing-button {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+.listing-new-button {
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+    width: 150px;
+    height: 50px;
+    font-weight: bold;
+    border-radius: 5px;
+}

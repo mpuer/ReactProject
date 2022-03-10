@@ -52,12 +52,15 @@ export const getListings = () => async (dispatch) => {
   }
 };
 
-export const getOneListing = (listing) => async (dispatch) => {
-    const response = await csrfFetch(`/api/listings/${listing.id}`)
+export const getOneListing = (id) => async (dispatch) => {
+    console.log(id, "this is the id in the thunk")
+    const response = await csrfFetch(`/api/listings/${id}`)
 
     if (response.ok) {
         const place = await response.json()
+        console.log("this is the place in the thunk", place)
         dispatch(oneListing(place));
+        return place;
     }
 }
 

@@ -1,6 +1,7 @@
 import React, { useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import "./createlisting.css"
 
 import { createListing } from "../../store/listing";
 
@@ -15,7 +16,7 @@ function CreateListingForm({setShowModal}) {
     const [address, setAddress] = useState('');
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
-    const [country, setCountry] = useState('listing.country');
+    const [country, setCountry] = useState('');
     const [price, setPrice] = useState();
     const [image, setImage] = useState('');
     const [description, setDescription] = useState('');
@@ -69,95 +70,87 @@ function CreateListingForm({setShowModal}) {
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
                 <div className="create-field-container">
-                    <label className='create-listing-fields'>
-                        Title
-                        <input
+                    <input className="create-listing-input"
                             type="text"
+                            placeholder="Title"
                             value={title}
                             onChange={updateTitle}
                             required
-                        />
-                    </label>
+                    />
                 </div>
                 <div className="create-field-container">
-                    <label className='create-listing-fields'>
-                        Address
-                        <input
+                        <input className="create-listing-input"
                             type="text"
+                            placeholder="Address"
+
                             value={address}
                             onChange={updateAddress}
                             required
                         />
-                    </label>
+                   
                 </div>
                 <div className="create-field-container">
-                    <label className='create-listing-fields'>
-                        City
-                        <input
+                        <input className="create-listing-input"
                             type="text"
+                            placeholder="City"
                             value={city}
                             onChange={updateCity}
                             required
                         />
-                    </label>
+                   
                 </div>
                 <div className="create-field-container">
-                    <label className='create-listing-fields'>
-                        State
-                        <input
+                        <input className="create-listing-input"
                             type="text"
+                            placeholder="State or Province"
                             value={state}
                             onChange={updateState}
                             required
                         />
-                    </label>
+                    
                 </div>
                 <div className="create-field-container">
-                    <label className='create-listing-fields'>
-                        Country
-                        <input
+                        <input className="create-listing-input"
                             type="text"
                             value={country}
+                            placeholder="Country"
                             onChange={updateCountry}
                             required
                         />
-                    </label>
+                    
                 </div>
                 <div className="create-field-container">
-                    <label className='create-listing-fields'>
-                        Price
-                        <input
+                        <input className="create-listing-input"
                             type="number"
+                            placeholder="Nightly rate"
                             value={price}
                             onChange={updatePrice}
                             required
                         />
-                    </label>
+                    
                 </div>
                 <div className="create-field-container">
-                    <label className='create-listing-fields'>
-                        Image
-                        <input
+                        <input className="create-listing-input"
                             type="text"
+                            placeholder="Image Url"
                             value={image}
                             onChange={updateImage}
                             required
                         />
-                    </label>
+                    
                 </div>
                 <div className="create-field-container">
-                    <label className='create-listing-fields'>
-                        Description
-                        <input
-                            type="text"
+                    <input className="create-listing-desc"
+                            type="textarea"
+                            placeholder="Description of your listing!"
                             value={description}
                             onChange={updateDescription}
                             required
                         />
-                    </label>
+                    
                 </div>
-                <button type="submit">Create</button>
-                <button type="button" onClick={cancelCreate}>Cancel</button>
+                <button className="create-listing-button" type="submit">CREATE</button>
+                <button className="create-listing-button" type="button" onClick={cancelCreate}>CANCEL</button>
             </form>
         </div>
     );

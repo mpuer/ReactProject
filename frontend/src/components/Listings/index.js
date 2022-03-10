@@ -28,17 +28,31 @@ const ListingViewer = () => {
 
     return (
         <div className='all-listings-container'>
+            {sessionUser &&
+            <CreateListingModal/>}
             <div className='current-listings-container'>
                 {listingsArr.map((listing) => {
                     return <div key={listing.id} className="single-listing-container">
-                        <Link to={`/listings/${listing.id}`}>{listing.address}</Link>
+                        <Link to={`/listings/${listing.id}`}>
+                            <div className="image-container">
+                                <img className="listing-image" src={`${listing.image}`}/>
+                            </div>
+                            <div className="single-listing-details">
+                                <div className="listing-title">{listing.title}</div>
+                                <div className="citycountry-and-price">
+                                    <div className="city-country">{listing.city}, {listing.country}</div>
+                                    <div className="price">${listing.price}/Night</div>
+                                </div>
+                            </div>
+                        
+                        
+                            
+                        </Link>
                         </div>
                 })}
 
 
             </div>
-            {sessionUser &&
-            <CreateListingModal/>}
         </div>
     );
 };
