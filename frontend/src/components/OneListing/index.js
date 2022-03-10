@@ -64,7 +64,7 @@ const OneListing = () => {
 
                     </div>
                     <div className="single-listing-individual-fields">
-                        <div className="listing-description">{listing.description}</div>
+                        <div className="listing-description">{listing?.description}</div>
                     </div>
                 </div>
                 {(sessionUser.id === listing?.userId) &&
