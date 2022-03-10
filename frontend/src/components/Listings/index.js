@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 import { getListings } from "../../store/listing";
 import CreateListingModal from "../CreateListingModal";
+import "./listings.css"
 
 const ListingViewer = () => {
     const dispatch = useDispatch();
