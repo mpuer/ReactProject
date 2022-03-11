@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Redirect } from "react-router-dom";
 import "./singlelisting.css"
 import { getOneListing } from "../../store/listing";
 import { removeListing } from "../../store/listing";
@@ -35,6 +35,11 @@ const OneListing = () => {
         console.log("this is the listing", listing)
         dispatch(getOneListing(id));
     }, [dispatch])
+
+    if (!sessionUser) {
+        alert("Please sign in or create an account to see listings.");
+        return <Redirect to="/"/>
+    }
 
     return (
         <div>

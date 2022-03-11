@@ -28,6 +28,12 @@
     list-style-type: none;
 }
 
+.nav-text-signup {
+    color: white;
+    list-style-type: none;
+    padding-left: 5px;
+}
+
 
 .nav-text-logo {
     color: white;
