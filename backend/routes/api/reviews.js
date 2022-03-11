@@ -28,7 +28,6 @@ router.get('/', asyncHandler(async (req, res) => {
 router.post("/", reviewsValidators, asyncHandler( async (req, res) => {
     const {userId, listingId, reviewText, rating} = req.body;
     const review = await Review.create({ userId, listingId, reviewText, rating});
-    console.log(review, "this is review in the api route")
 
     return res.json(review)
 }))

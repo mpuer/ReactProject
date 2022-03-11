@@ -23,7 +23,7 @@ const OneListing = () => {
 
     const listing = useSelector(state => state.listings[id]);
     // console.log("this is the listing!!", listing)
-    const reviews = useSelector(state => state.reviews);
+    const reviews = useSelector(state => state?.reviews);
     
 
     const reviewsArr = Object.values(reviews)

@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory, useParams } from "react-router-dom";
 
@@ -29,10 +29,24 @@ function CreateReviewForm({setShowModal}) {
             listingId:+id,
             reviewText,
             rating}
-        await dispatch(createReview(review))
-        // history.push(`/listings/${id}`)
+        // await dispatch(createReview(review))
+        // // history.push(`/listings/${id}`)
+        // setShowModal(false)
+        // return <Redirect to={`/listings/${id}`}/>
+
+
+        const newReview = await dispatch(createReview(review))
+        .catch(async (res) => {
+            const data = await res.json();
+            if (data && data.errors) setErrors(data.errors);
+
+
+    })
+
+    if (newReview) {
+        history.push(`/listings/${+id}`)
         setShowModal(false)
-        return <Redirect to={`/listings/${id}`}/>
+    }
             
     }
 
@@ -40,6 +54,11 @@ function CreateReviewForm({setShowModal}) {
         e.preventDefault();
         setShowModal(false);
     }
+
+    // useEffect(() => {
+    //     e.preventDefault();
+    //     dispatch
+    // })
 
     return (
         <div className="create-review-container">
