@@ -27,7 +27,7 @@ const OneListing = () => {
     
 
     const reviewsArr = Object.values(reviews)
-    const listingReviews = reviewsArr.filter(review => review.listingId === +id)
+    const listingReviews = reviewsArr?.filter(review => review?.listingId === +id)
     // console.log(listingReviews, "this is the listing reviews")
     
 
@@ -104,10 +104,10 @@ const OneListing = () => {
                         </div>
                     
                         <div className="user-reviewText">{review.reviewText}</div>
-                    {(sessionUser.id !== listing.userId) &&
-                    <CreateReviewModal/>}
                     </div>
                 })}
+                {(sessionUser.id !== listing?.userId) &&
+                <CreateReviewModal/>}
             </div>   
         </div>
     )

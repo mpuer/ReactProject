@@ -1,6 +1,6 @@
 import React, { useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { Redirect, useHistory, useParams } from "react-router-dom";
 
 import { createReview } from "../../store/reviews";
 
@@ -30,8 +30,9 @@ function CreateReviewForm({setShowModal}) {
             reviewText,
             rating}
         await dispatch(createReview(review))
-        history.push(`/listings/${id}`)
+        // history.push(`/listings/${id}`)
         setShowModal(false)
+        return <Redirect to={`/listings/${id}`}/>
             
     }
 
