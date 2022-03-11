@@ -4,7 +4,10 @@ import { useParams, useHistory, Redirect } from "react-router-dom";
 import "./singlelisting.css"
 import { getOneListing } from "../../store/listing";
 import { removeListing } from "../../store/listing";
+import { loadReviews } from "../../store/reviews";
 import EditListingModal from "../../components/EditListingModal";
+import CreateReviewModal from "../../components/CreateReviewModal";
+
 
 
 
@@ -16,9 +19,16 @@ const OneListing = () => {
     const { id } = useParams();
     // console.log("this is the id!", id)
     // const listingId = parseInt(id)
-    console.log("this is the id", id)
+    // console.log("this is the id", id)
+
     const listing = useSelector(state => state.listings[id]);
     // console.log("this is the listing!!", listing)
+    const reviews = useSelector(state => state.reviews);
+    
+
+    const reviewsArr = Object.values(reviews)
+    const listingReviews = reviewsArr.filter(review => review.listingId === +id)
+    // console.log(listingReviews, "this is the listing reviews")
     
 
     const deleteListing = async (e) => {
@@ -32,9 +42,15 @@ const OneListing = () => {
     }
 
     useEffect(() => {
-        console.log("this is the listing", listing)
+        // console.log("this is the listing", listing)
         dispatch(getOneListing(id));
     }, [dispatch])
+
+    useEffect(() => {
+        dispatch(loadReviews());
+    }, [dispatch])
+
+    
 
     if (!sessionUser) {
         alert("Please sign in or create an account to see listings.");
@@ -78,6 +94,20 @@ const OneListing = () => {
                 <button type="submit" className="create-listing-button" onClick={deleteListing}>Delete</button>
                 </>
                 }
+            </div>
+            <div className="reviews-container">
+                {listingReviews.map((review) => {
+                    return <div key={review.id} className="single-review-container">
+                        <div className="user-and-rating">
+                            <div className="review-username">Guest #{review.userId}</div>
+                            <div className="user-rating">Rating: {review.rating}/5</div>
+                        </div>
+                    
+                        <div className="user-reviewText">{review.reviewText}</div>
+                    {(sessionUser.id !== listing.userId) &&
+                    <CreateReviewModal/>}
+                    </div>
+                })}
             </div>   
         </div>
     )

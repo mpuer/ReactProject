@@ -2,12 +2,15 @@ const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const listingRouter = require('./listings');
+const reviewsRouter = require('./reviews');
 
 router.use('/session', sessionRouter);
 
 router.use('/users', usersRouter);
 
-router.use('/listings', listingRouter)
+router.use('/listings', listingRouter);
+
+router.use('/reviews', reviewsRouter);
 
 //-----test route-----//
 // router.post('/test', function(req, res) {
