@@ -65,7 +65,6 @@ const OneListing = () => {
     }, [dispatch])
     
 
-    
 
     if (!sessionUser) {
         alert("Please sign in or create an account to see listings.");
@@ -126,7 +125,7 @@ const OneListing = () => {
                         }
                     </div>
                 })}
-                {(listing?.userId !== sessionUser.id) &&
+                {(listing?.userId !== sessionUser?.id) &&
                 <CreateReviewModal/>}
             </div>   
         </div>
