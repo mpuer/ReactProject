@@ -30,6 +30,10 @@ const OneListing = () => {
     const reviewsArr = Object.values(reviews)
     const listingReviews = reviewsArr?.filter(review => review?.listingId === +id)
     // console.log(listingReviews, "this is the listing reviews")
+
+    const notMyPost = (sessionUser?.id !== listing?.userId);
+    const noReviewYet = (!listingReviews?.find(review => review.userId !== sessionUser.id));
+    const postReview = (notMyPost && noReviewYet);
     
 
     const deleteListing = async (e) => {
@@ -45,12 +49,10 @@ const OneListing = () => {
     const deleteReview = async (e) => {
         e.preventDefault();
         const myReview = listingReviews.find(review => review?.userId === sessionUser.id)
-        await dispatch(removeReview(myReview))
-        .then(history.push(`/listings/${+id}`))
-        .catch( async (res) => {
-            throw new Error("Unable to delete review")
-        })
-
+        let review = dispatch(removeReview(myReview.id))
+        if (review) {
+        dispatch(loadReviews());
+    }
     }
 
     useEffect(() => {
@@ -118,12 +120,13 @@ const OneListing = () => {
                     
                         <div className="user-reviewText">{review.reviewText}</div>
                         {(review.userId === sessionUser.id) &&
-                        <button type="submit" className="create-listing-button" onClick={deleteReview}>Delete Review</button>
-                        
+                        <form onSubmit={deleteReview}>
+                        <button type="submit" className="create-listing-button">Delete Review</button>
+                        </form>
                         }
                     </div>
                 })}
-                {(sessionUser.id !== listing?.userId) && (!listingReviews.find(review => review.userId !== sessionUser.id)) &&
+                {(listing?.userId !== sessionUser.id) &&
                 <CreateReviewModal/>}
             </div>   
         </div>

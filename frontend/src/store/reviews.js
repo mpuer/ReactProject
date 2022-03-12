@@ -18,10 +18,10 @@ const create = (review) => {
     }
 }
 
-const remove = (review) => {
+const remove = (id) => {
     return {
         type: REMOVE_REVIEWS,
-        review
+        id
     }
 }
 
@@ -54,18 +54,14 @@ export const createReview = (review) => async (dispatch) => {
 
 }
 
-export const removeReview = (review) => async (dispatch) => {
-    console.log(review, "11111111111111111111111111")
-    const response = await csrfFetch("/api/reviews", {
-        method: "DELETE",
-        // body: JSON.stringify({review})
-    })
-    if (response.ok) {
-    const myReview = await response.json();
-    console.log(review);
-    dispatch(remove(myReview));
-    return myReview;
-    }
+export const removeReview = (id) => async (dispatch) => {
+    const response = await csrfFetch(`/api/reviews/${id}`, {
+        method: 'DELETE',
+        body: JSON.stringify({ id })
+    });
+    const review = await response.json();
+    dispatch(remove(id))
+    return;
 }
 
 const initialState = {};
@@ -88,7 +84,7 @@ const reviewReducer = (state = initialState, action) => {
         }
         case REMOVE_REVIEWS: {
             const newState = {...state};
-            delete newState[action.review.id];
+            delete newState[action.reviewId];
             return newState;
         }
         default:
