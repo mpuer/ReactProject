@@ -32,5 +32,14 @@ router.post("/", reviewsValidators, asyncHandler( async (req, res) => {
     return res.json(review)
 }))
 
+router.delete("/", asyncHandler(async (req, res) => {
+    console.log(req.body)
+    // console.log(id, "222222222222222222222222222")
+    // const review = await Review.findByPk(id);
+    // console.log(review, "this is the review in the route")
+    // const remove = await review.destroy();
+    // res.json(remove)
+}))
+
   
 module.exports = router;

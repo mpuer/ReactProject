@@ -5,6 +5,7 @@ import "./singlelisting.css"
 import { getOneListing } from "../../store/listing";
 import { removeListing } from "../../store/listing";
 import { loadReviews } from "../../store/reviews";
+import { removeReview } from "../../store/reviews";
 import EditListingModal from "../../components/EditListingModal";
 import CreateReviewModal from "../../components/CreateReviewModal";
 
@@ -41,6 +42,17 @@ const OneListing = () => {
         })
     }
 
+    const deleteReview = async (e) => {
+        e.preventDefault();
+        const myReview = listingReviews.find(review => review?.userId === sessionUser.id)
+        await dispatch(removeReview(myReview))
+        .then(history.push(`/listings/${+id}`))
+        .catch( async (res) => {
+            throw new Error("Unable to delete review")
+        })
+
+    }
+
     useEffect(() => {
         // console.log("this is the listing", listing)
         dispatch(getOneListing(id));
@@ -49,6 +61,7 @@ const OneListing = () => {
     useEffect(() => {
         dispatch(loadReviews());
     }, [dispatch])
+    
 
     
 
@@ -104,9 +117,13 @@ const OneListing = () => {
                         </div>
                     
                         <div className="user-reviewText">{review.reviewText}</div>
+                        {(review.userId === sessionUser.id) &&
+                        <button type="submit" className="create-listing-button" onClick={deleteReview}>Delete Review</button>
+                        
+                        }
                     </div>
                 })}
-                {(sessionUser.id !== listing?.userId) &&
+                {(sessionUser.id !== listing?.userId) && (!listingReviews.find(review => review.userId !== sessionUser.id)) &&
                 <CreateReviewModal/>}
             </div>   
         </div>
