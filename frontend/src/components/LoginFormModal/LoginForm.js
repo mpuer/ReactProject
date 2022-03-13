@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
-import {useHistory} from "react-router-dom"
+import {useHistory} from "react-router-dom";
+import "./loginbutton.css"
+
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -25,7 +27,7 @@ function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="login-form-container" onSubmit={handleSubmit}>
       <ul>
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
@@ -33,7 +35,7 @@ function LoginForm() {
       </ul>
       <label>
         Username or Email
-        <input
+        <input className="login-email"
           type="text"
           value={credential}
           onChange={(e) => setCredential(e.target.value)}
@@ -42,7 +44,7 @@ function LoginForm() {
       </label>
       <label>
         Password
-        <input
+        <input className="login-password"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
