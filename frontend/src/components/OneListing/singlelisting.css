@@ -42,3 +42,9 @@
     height: 35px;
     margin-bottom: 5px;
 }
+
+.single-review-container {
+    display: flex;
+    padding: 5px 0px 5px;
+    border: 1px solid rgba(0, 0, 0, 0.5)
+}

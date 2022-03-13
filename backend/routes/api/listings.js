@@ -44,7 +44,7 @@ const listingValidators = [
   handleValidationErrors,
 ];
 
-router.get('/', asyncHandler(async function(_req, res) {
+router.get('/', asyncHandler(async (req, res) => {
     const listings = await Listing.findAll();
     return res.json(listings);
   }));

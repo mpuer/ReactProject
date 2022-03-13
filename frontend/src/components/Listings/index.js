@@ -16,10 +16,10 @@ const ListingViewer = () => {
         dispatch(getListings());
     }, [dispatch, sessionUser]);
     
-    if (!sessionUser) {
-        alert("Please sign in or create an account to see listings.");
-        return <Redirect to="/"/>
-    }
+    // if (!sessionUser) {
+    //     alert("Please sign in or create an account to see listings.");
+    //     return <Redirect to="/"/>
+    // }
 
     if (!listings) {
         return null;
@@ -27,6 +27,7 @@ const ListingViewer = () => {
 
 
     return (
+        
         <div className='all-listings-container'>
             {sessionUser &&
             <CreateListingModal/>}
@@ -54,6 +55,7 @@ const ListingViewer = () => {
 
             </div>
         </div>
+            
     );
 };
 

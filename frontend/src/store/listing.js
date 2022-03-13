@@ -58,7 +58,6 @@ export const getOneListing = (id) => async (dispatch) => {
 
     if (response.ok) {
         const place = await response.json()
-        console.log("this is the place in the thunk", place)
         dispatch(oneListing(place));
         return place;
     }
