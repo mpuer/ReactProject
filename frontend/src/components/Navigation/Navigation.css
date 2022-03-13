@@ -26,6 +26,7 @@
 .nav-text {
     color: white;
     list-style-type: none;
+    font-size: small;
 }
 
 .nav-text-signup {
@@ -49,4 +50,48 @@
 
 .airbnb-logo {
     width: 40px;    
+}
+
+
+.profile-button {
+    width: 25px;
+    height: 25px;
+    filter: invert(1);
+    /* font-weight: bolder; */
+}
+
+#menu-button {
+  
+    border: none;
+
+    margin: 0;
+    text-decoration: none;
+    background: black;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    text-align: center;
+}
+
+#log-out {
+    border: 1px solid white;
+    border-radius: 5px;
+    margin: 0;
+    text-decoration: none;
+    background: black;
+    color: white;
+}
+
+#log-out:hover {
+    cursor: pointer;
+}
+
+.user-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: none;
 }

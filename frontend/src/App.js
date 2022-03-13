@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
@@ -8,6 +8,7 @@ import ListingViewer from "./components/Listings";
 import OneListing from "./components/OneListing";
 
 function App() {
+  const sessionUser = useSelector((state) => state.session.user)
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
@@ -22,8 +23,8 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route exact path="/listings">
-          <ListingViewer/>
+          <Route exact path="/">
+            {sessionUser ? <ListingViewer/> : null }
           </Route>
           <Route path="/listings/:id">
             <OneListing/>

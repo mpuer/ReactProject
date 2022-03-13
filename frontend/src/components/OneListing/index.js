@@ -66,10 +66,10 @@ const OneListing = () => {
     
 
 
-    if (!sessionUser) {
-        alert("Please sign in or create an account to see listings.");
-        return <Redirect to="/"/>
-    }
+    // if (!sessionUser) {
+    //     alert("Please sign in or create an account to see listings.");
+    //     return <Redirect to="/"/>
+    // }
 
     return (
         <div>

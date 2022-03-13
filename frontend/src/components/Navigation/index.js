@@ -12,7 +12,7 @@ function Navigation({ isLoaded }){
   if (sessionUser) {
     sessionLinks = (
       <>
-      <NavLink className="nav-text" exact to="/listings">Listings  </NavLink>
+      <NavLink className="nav-text" exact to="/listings">  </NavLink>
       <ProfileButton user={sessionUser} />
       </>
     );
@@ -28,11 +28,11 @@ function Navigation({ isLoaded }){
   return (
     <ul className='nav-container'>
       <li className='barebnb-logo'>
-        <img className="airbnb-logo" src="/airbnb-64.png"></img>
+        <img alt="" className="airbnb-logo" src="/airbnb-64.png"></img>
         <div className="nav-text-logo">barebnb</div>
       </li>
       <li className='home-link'>
-        <NavLink className="nav-text" exact to="/">Home</NavLink>
+        <NavLink className="nav-text" exact to="/"></NavLink>
       </li>
       <li className='loggedin-nav'>
         {isLoaded && sessionLinks}

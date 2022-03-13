@@ -7,6 +7,10 @@
     padding: 2px 4px 2px 4px;
 }
 
+.login-button:hover {
+    cursor: pointer;
+}
+
 
 .login-form-container {
     display: flex;
