@@ -19,7 +19,7 @@ function LoginForm() {
       async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
-        history.push("/listings")
+        else history.push("/listings")
 
         
       }
