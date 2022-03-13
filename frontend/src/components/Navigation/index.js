@@ -12,7 +12,7 @@ function Navigation({ isLoaded }){
   if (sessionUser) {
     sessionLinks = (
       <>
-      <NavLink className="nav-text" exact to="/listings">  </NavLink>
+      {/* <NavLink className="" exact to="/"> Listings </NavLink> */}
       <ProfileButton user={sessionUser} />
       </>
     );
