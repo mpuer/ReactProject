@@ -95,3 +95,17 @@
     justify-content: center;
     padding: none;
 }
+
+.loggedin-nav {
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+
+
+.listings-link {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

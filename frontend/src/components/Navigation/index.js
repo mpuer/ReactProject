@@ -12,16 +12,16 @@ function Navigation({ isLoaded }){
   if (sessionUser) {
     sessionLinks = (
       <>
-      {/* <NavLink className="" exact to="/"> Listings </NavLink> */}
+      <NavLink className="listings-link" exact to="/"> Listings | </NavLink>
       <ProfileButton user={sessionUser} />
       </>
     );
   } else {
     sessionLinks = (
-      <>
+      <div className='session-links'>
         <LoginFormModal />
         <NavLink className="nav-text-signup" to="/signup">Sign Up</NavLink>
-      </>
+      </div>
     );
   }
 
