@@ -35,14 +35,10 @@ const OneListing = () => {
     const noReviewYet = (!listingReviews?.find(review => review.userId !== sessionUser.id));
     const postReview = (notMyPost && noReviewYet);
 
-    if (!sessionUser) {
-        return <Redirect to="/"/>
-    }
     
-
     const deleteListing = async (e) => {
         e.preventDefault();
-
+        
         await dispatch(removeListing(listing))
         .then(history.push("/"))
         .catch( async (res) => {
@@ -55,24 +51,24 @@ const OneListing = () => {
         const myReview = listingReviews.find(review => review?.userId === sessionUser.id)
         let review = dispatch(removeReview(myReview.id))
         if (review) {
-        dispatch(loadReviews());
+            dispatch(loadReviews());
+        }
     }
-    }
-
+    
     useEffect(() => {
         // console.log("this is the listing", listing)
         dispatch(getOneListing(id));
     }, [dispatch])
-
+    
     useEffect(() => {
         dispatch(loadReviews());
     }, [dispatch])
     
 
 
-    if (!sessionUser) {
-        return <Redirect to="/"/>
-    }
+    // if (!sessionUser) {
+    //    return history.push("/")
+    // }
 
     return (
         <div>
