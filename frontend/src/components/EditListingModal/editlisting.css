@@ -28,3 +28,7 @@
     height: 35px;
     margin-bottom: 5px;
 }
+
+.create-listing-button:hover {
+    cursor: pointer;
+}

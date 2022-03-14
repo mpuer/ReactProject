@@ -79,6 +79,10 @@
     border-radius: 5px;
 }
 
+.listing-new-button:hover {
+    cursor: pointer;
+}
+
 textarea {
     grid-row: 4;
     grid-column: 40;
