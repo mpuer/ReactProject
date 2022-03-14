@@ -33,7 +33,7 @@ const SplashPage = () => {
                     </div>
                     <div className="destination">
                         <img src="https://a0.muscache.com/im/pictures/db8167f7-5c57-4684-80ae-4350c73e45ef.jpg?im_w=240" className="dest-image"></img>
-                        <div className="dest-image-text">São Paulo</div>
+                        <div className="dest-image-text">Rio de Janeiro</div>
                     </div>
                 </div>
             </div>

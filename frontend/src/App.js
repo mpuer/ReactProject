@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 import ListingViewer from "./components/Listings";
 import OneListing from "./components/OneListing";
 import SplashPage from "./components/SplashHomePage";
+import Footer from "./components/Footer";
 
 function App() {
   const sessionUser = useSelector((state) => state.session.user)
@@ -32,6 +33,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer/>
     </>
   );
 }
