@@ -1,0 +1,38 @@
+.create-review-container {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 400px;
+}
+
+
+.create-review-form {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+}
+
+.rating {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.reviewText {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+
+.error-message {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 10px;
+    color: red;
+}

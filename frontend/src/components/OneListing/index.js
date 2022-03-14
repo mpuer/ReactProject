@@ -34,7 +34,6 @@ const OneListing = () => {
     const notMyPost = (sessionUser?.id !== listing?.userId);
     const noReviewYet = (!listingReviews?.find(review => review.userId !== sessionUser.id));
     const postReview = (notMyPost && noReviewYet);
-
     
     const deleteListing = async (e) => {
         e.preventDefault();
@@ -51,6 +50,7 @@ const OneListing = () => {
         const myReview = listingReviews.find(review => review?.userId === sessionUser.id)
         let review = dispatch(removeReview(myReview.id))
         if (review) {
+            review = false;
             dispatch(loadReviews());
         }
     }
@@ -124,7 +124,7 @@ const OneListing = () => {
                         }
                     </div>
                 })}
-                {(listing?.userId !== sessionUser?.id) &&
+                {(!(listingReviews.find(review => review.userId === sessionUser.id)) && !(listing.userId === sessionUser.id)) &&
                 <CreateReviewModal/>}
             </div>   
         </div>

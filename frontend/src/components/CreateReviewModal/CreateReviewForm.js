@@ -1,6 +1,7 @@
 import React, { useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory, useParams } from "react-router-dom";
+import "./createreview.css"
 
 import { createReview } from "../../store/reviews";
 
@@ -20,6 +21,7 @@ function CreateReviewForm({setShowModal}) {
 
     const updateText = (e) => setReviewText(e.target.value);
     const updateRating = (e) => setRating(e.target.value);
+
 
 
     const submitReview = async (e) => {
@@ -62,6 +64,11 @@ function CreateReviewForm({setShowModal}) {
 
     return (
         <div className="create-review-container">
+            <ul>
+            {errors.map((error) => {
+                return <li className="error-message">{error}</li>
+            })}
+            </ul>
             <form onSubmit={submitReview} className="create-review-form">
                 <input className="rating"
                 type="number"
@@ -70,13 +77,13 @@ function CreateReviewForm({setShowModal}) {
                 onChange={updateRating}
                 required
                 ></input>
-                <input className="reviewText"
+                <textarea className="reviewText"
                 type="textarea"
                 placeholder="Your review of this listing!"
                 value={reviewText}
                 onChange={updateText}
                 required
-                ></input>
+                ></textarea>
                 <button className="create-listing-button" type="submit">CREATE</button>
                 <button className="create-listing-button" type="button" onClick={cancelReview}>CANCEL</button>
             </form>

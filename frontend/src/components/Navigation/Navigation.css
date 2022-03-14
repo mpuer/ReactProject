@@ -109,3 +109,21 @@
     flex-direction: column;
     justify-content: center;
 }
+
+.demo-button {
+    margin-left: 5px;
+    background-color: #ff4265;
+    text-decoration: none;
+    color: black;
+    border: none;
+    border-radius: 2px;
+
+}
+
+.demo-button:hover {
+    cursor: pointer;
+}
+
+.profile-dropdown {
+    list-style: none;
+}

@@ -140,8 +140,9 @@ function CreateListingForm({setShowModal}) {
                     
                 </div>
                 <div className="create-field-container">
-                    <input className="create-listing-desc"
+                    <textarea className="create-listing-desc"
                             type="textarea"
+                            cols="20"
                             placeholder="Description of your listing!"
                             value={description}
                             onChange={updateDescription}

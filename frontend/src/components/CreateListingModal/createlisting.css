@@ -13,7 +13,7 @@
 
 .create-form-container {
     width:500px;
-    height: 500px;
+    max-height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -49,12 +49,14 @@
 .create-listing-desc {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items:flex-start;
+    align-content: flex-start;
     width: 250px;
     height: 80px;
     /* text-align: right; */
     /* position: absolute; */
     right: 2em;
+    /* overflow-wrap: anywhere; */
 }
 
 
@@ -75,4 +77,17 @@
     height: 50px;
     font-weight: bold;
     border-radius: 5px;
+}
+
+textarea {
+    grid-row: 4;
+    grid-column: 40;
+}
+
+.errors {
+    list-style: none;
+}
+
+li {
+    color: red;
 }

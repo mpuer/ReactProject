@@ -82,10 +82,10 @@ function EditListingForm({setShowModal}) {
 
     return (
         <div className='edit-form-container'>
-            <form onSubmit={submitEdit} className='listing-edit-form'>
-                <ul className="errors">
+            <ul className="errors">
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                </ul>
+            </ul>
+            <form onSubmit={submitEdit} className='listing-edit-form'>
                 <div className="edit-field-container">
                     <label className='edit-listing-fields'>
                         Title
@@ -166,7 +166,7 @@ function EditListingForm({setShowModal}) {
                 <div className="edit-field-container">
                     <label className='edit-listing-fields'>
                         Description
-                        <input
+                        <textarea
                             type="text"
                             value={description}
                             onChange={updateDescription}

@@ -36,3 +36,12 @@
     align-items: center;
 
 }
+
+.Login {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    margin-bottom: 5px;
+}

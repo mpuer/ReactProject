@@ -27,13 +27,13 @@ function App() {
           </Route>
           <Route exact path="/">
             {sessionUser ? <ListingViewer/> : <SplashPage/> }
+          <Footer/>
           </Route>
           <Route path="/listings/:id">
             {sessionUser ? <OneListing/> : <Redirect to="/"/>}
           </Route>
         </Switch>
       )}
-      <Footer/>
     </>
   );
 }
