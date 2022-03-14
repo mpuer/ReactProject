@@ -39,6 +39,8 @@ const ListingViewer = () => {
                             </div>
                             <div className="single-listing-details">
                                 <div className="listing-title">{listing.title}</div>
+                                {(listing.userId === sessionUser.id) &&
+                                <div className="my-listing">*your listing*</div>}
                                 <div className="citycountry-and-price">
                                     <div className="city-country">{listing.city}, {listing.country}</div>
                                     <div className="price">${listing.price}/Night</div>
