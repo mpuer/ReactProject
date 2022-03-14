@@ -1,6 +1,6 @@
 # barebnb
 
-barebnb is an [Airbnb](https://www.hipcamp.com/en-US) clone that focuses on smaller niche accommodations that contribute to the traveler's enjoyment of their destination.
+barebnb is an [Airbnb](https://www.airbnb.com/) clone that focuses on smaller niche accommodations that contribute to the traveler's enjoyment of their destination.
 
 Try creating an account and using currently deployed features: [barebnb](https://bare-bnb.herokuapp.com/).
 
