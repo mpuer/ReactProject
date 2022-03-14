@@ -52,7 +52,7 @@ function CreateListingForm({setShowModal}) {
             })
 
             if (newListing) {
-                history.push("/listings")
+                history.push("/")
                 setShowModal(false)
             }
     }

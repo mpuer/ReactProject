@@ -16,10 +16,9 @@ const ListingViewer = () => {
         dispatch(getListings());
     }, [dispatch, sessionUser]);
     
-    // if (!sessionUser) {
-    //     alert("Please sign in or create an account to see listings.");
-    //     return <Redirect to="/"/>
-    // }
+    if (!sessionUser) {
+        return <Redirect to="/"/>
+    }
 
     if (!listings) {
         return null;
