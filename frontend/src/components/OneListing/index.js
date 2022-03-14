@@ -40,7 +40,7 @@ const OneListing = () => {
         e.preventDefault();
 
         await dispatch(removeListing(listing))
-        .then(history.push("/listings"))
+        .then(history.push("/"))
         .catch( async (res) => {
             throw new Error("Unable to delete! this is the component!!")
         })
