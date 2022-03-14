@@ -34,6 +34,10 @@ const OneListing = () => {
     const notMyPost = (sessionUser?.id !== listing?.userId);
     const noReviewYet = (!listingReviews?.find(review => review.userId !== sessionUser.id));
     const postReview = (notMyPost && noReviewYet);
+
+    if (!sessionUser) {
+        return <Redirect to="/"/>
+    }
     
 
     const deleteListing = async (e) => {
