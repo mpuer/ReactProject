@@ -21,6 +21,7 @@ function Navigation({ isLoaded }){
       <div className='session-links'>
         <LoginFormModal />
         <NavLink className="nav-text-signup" to="/signup">Sign Up</NavLink>
+        
       </div>
     );
   }

@@ -1,0 +1,143 @@
+.splash-main-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.splash-first-container {
+    display: flex;
+    width:100%;
+    height: 500px;
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.first-container-banner {
+    display: flex;
+    flex-direction: column;
+    font-size: 55px;
+    color: white;
+    background-color: #FF385C;
+    width: 900px;
+    height: 300px;
+    align-items: center;
+    justify-content:space-evenly;
+    border-radius: 50px;
+}
+
+.first-container-inner-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 17px;
+    font-weight:600;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    width:200px;
+    height: 50px;
+    border-top: 3px solid white;
+    border-bottom: 3px solid white;
+    border-radius: 3px;
+}
+
+.splash-second-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    height: 700px;
+    background: linear-gradient(180deg, black 50%, white 50%);
+    
+}
+
+.second-container-title {
+    color: white;
+    font-size: 40px;
+}
+
+.second-container-image-one {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 575px;
+    height: 575px;
+    color: white;
+    /* max-height: 500px; */
+    background-image: url("../../../public/cabin.jpg");
+    background: brightness(20%);
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* filter: brightness(50%); */
+    /* border-radius: 50px; */
+    border-collapse: collapse;
+    font-size: 30px;
+}
+
+.second-container-image-two {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 575px;
+    height: 575px;
+    color: white;
+    /* max-height: 500px; */
+    background-image: url("../../../public/lakehouse.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* border-radius: 50px; */
+    border-collapse: collapse;
+    font-size: 30px;
+}
+
+.pictures-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width:100%;
+    height: 700px;
+    /* background: linear-gradient(180deg, black 50%, white 50%); */
+    padding-top: 75px;
+
+}
+
+.splash-third-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+}
+
+.destination {
+    display: flex;
+    flex-direction: column;
+}
+
+.destination-images-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    padding-top: 20px;
+    width:100%;
+
+}
+
+.dest-image-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 240px;
+    height:160px;
+    color: white;
+    font-size: 30px;
+    background-color: #ff4265;
+
+}

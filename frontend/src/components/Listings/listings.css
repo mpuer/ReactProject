@@ -28,7 +28,7 @@
     flex-direction: column;
     align-items: center;
     height: 300px;
-    width: 450px;
+    width: 600px;
     border: 1px solid black;
     border-radius: 5px;
     padding: 40px 0px 10px;
@@ -38,9 +38,12 @@
 }
 
 .image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 350px;
     height: 230px;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
 }
 
 .listing-image {
@@ -69,4 +72,5 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 10px;
 }

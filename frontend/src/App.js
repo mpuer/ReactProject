@@ -6,6 +6,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import ListingViewer from "./components/Listings";
 import OneListing from "./components/OneListing";
+import SplashPage from "./components/SplashHomePage";
 
 function App() {
   const sessionUser = useSelector((state) => state.session.user)
@@ -24,7 +25,7 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route exact path="/">
-            {sessionUser ? <ListingViewer/> : null }
+            {sessionUser ? <ListingViewer/> : <SplashPage/> }
           </Route>
           <Route path="/listings/:id">
             <OneListing/>
