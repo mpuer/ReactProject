@@ -9,7 +9,7 @@ barebnb wants travelers to fully appreciate their destination. Providing locatio
 barebnb will provide your next unforgettable travel experience!
 
 ## Starting The App
-To view and use this application, you can either navigate to the [live hosted site](https://github.com/mpuer/barebnb.git) and login as a new or demo user, or download the project locally:
+To view and use this application, you can either navigate to the [live hosted site](https://bare-bnb.herokuapp.com/) and login as a new or demo user, or download the project locally:
 1. Clone this repository ```git clone https://github.com/mpuer/barebnb.git```
 
 2. Install dependencies ```npm install``` in both backend and frontend folders.
