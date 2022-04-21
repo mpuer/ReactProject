@@ -12,10 +12,6 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      title: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
       address: {
         type: Sequelize.STRING,
         allowNull: false,

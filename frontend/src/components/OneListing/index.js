@@ -10,12 +10,16 @@ import EditListingModal from "../../components/EditListingModal";
 import CreateReviewModal from "../../components/CreateReviewModal";
 
 
+const myKey = process.env.REACT_APP_API_KEY
 
+console.log('this is my key!!!', myKey)
 
 const OneListing = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user)
+
+    
 
     const { id } = useParams();
     // console.log("this is the id!", id)
@@ -124,7 +128,7 @@ const OneListing = () => {
                         }
                     </div>
                 })}
-                {(!(listingReviews.find(review => review.userId === sessionUser.id)) && !(listing.userId === sessionUser.id)) &&
+                {(!(listingReviews.find(review => review?.userId === sessionUser.id)) && !(listing?.userId === sessionUser.id)) &&
                 <CreateReviewModal/>}
             </div>   
         </div>

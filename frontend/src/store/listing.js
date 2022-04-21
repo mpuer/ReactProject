@@ -53,7 +53,6 @@ export const getListings = () => async (dispatch) => {
 };
 
 export const getOneListing = (id) => async (dispatch) => {
-    console.log(id, "this is the id in the thunk")
     const response = await csrfFetch(`/api/listings/${id}`)
 
     if (response.ok) {
