@@ -1,6 +1,6 @@
 # barebnb
 
-barebnb is an [Airbnb](https://www.airbnb.com/) clone that focuses on smaller niche accommodations that contribute to the traveler's enjoyment of their destination.
+barebnb is an [Airbnb](https://www.airbnb.com/) clone that focuses on smaller niche accommodations that contribute to the traveler's experience of their destination.
 
 Try creating an account and using currently deployed features: [barebnb](https://bare-bnb.herokuapp.com/).
 
@@ -42,5 +42,7 @@ To view and use this application, you can either navigate to the [live hosted si
 - Logged in users can view other users reviews, create, and delete their own reviews!
 
 ## Future Features
+### Sorting and Searching listings
+- sort and search listings by posting time, location, price, and more!
 ### Booked Listings
 - track and manage your upcoming listings
