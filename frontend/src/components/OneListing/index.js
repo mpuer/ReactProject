@@ -10,9 +10,9 @@ import EditListingModal from "../../components/EditListingModal";
 import CreateReviewModal from "../../components/CreateReviewModal";
 
 
-const myKey = process.env.REACT_APP_API_KEY
+const API_KEY = process.env.REACT_APP_MAPS_API_KEY
 
-console.log('this is my key!!!', myKey)
+console.log('this is my key!!!', API_KEY)
 
 const OneListing = () => {
     const dispatch = useDispatch();
@@ -81,7 +81,7 @@ const OneListing = () => {
                 <img className="single-listing-image" alt="" src={`${listing?.image}`}></img>
                 <div className="single-listing-address-details">
                     <div className="single-listing-individual-fields">
-                        <div>Street address:</div> 
+                        <div>Street address: {API_KEY}</div> 
                         <div className="single-listing-values">{listing?.address}</div>
                     </div>
                     <div className="single-listing-individual-fields">
