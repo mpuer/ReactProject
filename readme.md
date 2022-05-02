@@ -38,11 +38,8 @@ To view and use this application, you can either navigate to the [live hosted si
 ### Listings
 - Logged in users can view listings, as well as create, update, and delete their own!
 
+### Google Maps Static API
+- Listings will display relative location for logged in users!
+
 ### Reviews
 - Logged in users can view other users reviews, create, and delete their own reviews!
-
-## Future Features
-### Sorting and Searching listings
-- sort and search listings by posting time, location, price, and more!
-### Booked Listings
-- track and manage your upcoming listings
