@@ -129,10 +129,11 @@ const listingReducer = ( state = initialState, action) => {
             return newState;
         }
         case UPDATE_LISTING: {
-            return {
+            const newState = {
                 ...state,
                 [action.listing.id]: action.listing
             };
+            return newState;
         };
         case REMOVE_LISTING: {
             let newState = {...state};

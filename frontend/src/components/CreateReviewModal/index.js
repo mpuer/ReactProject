@@ -1,7 +1,7 @@
 import React, {useState, } from "react";
 import { Modal } from "../../context/Modal";
 import CreateReviewForm from "./CreateReviewForm";
-import {NavLink, Route} from "react-router-dom";
+// import {NavLink, Route} from "react-router-dom";
 
 function CreateReviewModal() {
     const [showModal, setShowModal] = useState(false);

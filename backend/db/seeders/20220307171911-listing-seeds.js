@@ -4,6 +4,7 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Listings', [{
       userId: 1,
+      title: "Beautiful Escape",
       address: "Eitrheimsvegen 65, 5750",
       city: "Odda",
       state: "Ullensvang",
@@ -15,6 +16,7 @@ module.exports = {
       updatedAt: new Date()
     }, {
       userId: 1,
+      title: "Enjoy the surroundings",
       address: "Maelsvegen 299, 5628",
       city: "Herand",
       state: "Ullensvang",
@@ -27,6 +29,7 @@ module.exports = {
     },
     {
       userId: 2,
+      title: "The best getaway!",
       address: "125 Rue des Vergers",
       city: "Villersexel",
       state: "Franche-Comte",
@@ -39,18 +42,20 @@ module.exports = {
     },
     {
       userId: 2,
+      title: "beautiful new listing!",
       address: "599 Rte de la Griaz",
       city: "Les Houches",
       state: "Auvergne-Rhône-Alpes",
       country: "France",
       price: 114,
-      image: "https://a0.muscache.com/im/pictures/77502939/a25d9ab1_original.jpg?im_w=1200",
+      image: "https://en.ski-france.com/media/cache/gallery_default/5851696-Chalet-Athina.jpg",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet efficitur nisl. Fusce consectetur, massa vitae placerat sodales, libero leo sagittis augue, ut sollicitudin ex libero ac justo. Donec a accumsan nunc. Donec a tempor dolor. Donec non dictum tellus, a condimentum sem. Etiam ac velit mauris. Donec volutpat.",
       createdAt: new Date(),
       updatedAt: new Date()
     },
     {
       userId: 3,
+      title: "Italian dream",
       address: "822 Via Aurelia",
       city: "Rosignano Solvay-Castiglioncello",
       state: "Tuscany",
@@ -63,6 +68,7 @@ module.exports = {
     },
     {
       userId: 3,
+      title: "Countryside relaxation",
       address: "Via Mortelle, 54",
       city: "Torre del Greco",
       state: "Campania",

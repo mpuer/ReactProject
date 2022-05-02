@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
-import {useHistory} from "react-router-dom";
+// import {useHistory} from "react-router-dom";
 import "./loginbutton.css"
 
 
 function LoginForm() {
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);

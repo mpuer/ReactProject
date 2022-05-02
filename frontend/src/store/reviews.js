@@ -61,7 +61,7 @@ export const removeReview = (id) => async (dispatch) => {
     });
     const review = await response.json();
     dispatch(remove(id))
-    return;
+    return review;
 }
 
 const initialState = {};

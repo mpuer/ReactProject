@@ -5,6 +5,7 @@
 module.exports = (sequelize, DataTypes) => {
   const Listing = sequelize.define('Listing', {
     userId: DataTypes.INTEGER,
+    title: DataTypes.STRING,
     address: DataTypes.STRING,
     city: DataTypes.STRING,
     state: DataTypes.STRING,

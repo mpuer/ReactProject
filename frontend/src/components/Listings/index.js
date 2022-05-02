@@ -35,7 +35,7 @@ const ListingViewer = () => {
                     return <div key={listing.id} className="single-listing-container">
                         <Link to={`/listings/${listing.id}`}>
                             <div className="image-container">
-                                <img className="listing-image" src={`${listing.image}`}/>
+                                <img alt='' className="listing-image" src={`${listing.image}`}/>
                             </div>
                             <div className="single-listing-details">
                                 <div className="listing-title">{listing.title}</div>

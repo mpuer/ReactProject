@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory, Redirect } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import "./singlelisting.css"
 import { getOneListing } from "../../store/listing";
 import { removeListing } from "../../store/listing";
@@ -35,9 +35,9 @@ const OneListing = () => {
     const listingReviews = reviewsArr?.filter(review => review?.listingId === +id)
     // console.log(listingReviews, "this is the listing reviews")
 
-    const notMyPost = (sessionUser?.id !== listing?.userId);
-    const noReviewYet = (!listingReviews?.find(review => review.userId !== sessionUser.id));
-    const postReview = (notMyPost && noReviewYet);
+    // const notMyPost = (sessionUser?.id !== listing?.userId);
+    // const noReviewYet = (!listingReviews?.find(review => review.userId !== sessionUser.id));
+    // const postReview = (notMyPost && noReviewYet);
     
     const deleteListing = async (e) => {
         e.preventDefault();
@@ -62,7 +62,7 @@ const OneListing = () => {
     useEffect(() => {
         // console.log("this is the listing", listing)
         dispatch(getOneListing(id));
-    }, [dispatch])
+    }, [dispatch, id])
     
     useEffect(() => {
         dispatch(loadReviews());
@@ -79,9 +79,13 @@ const OneListing = () => {
             <div className="current-listing-container">
                 <h3>{listing?.title}</h3>
                 <img className="single-listing-image" alt="" src={`${listing?.image}`}></img>
+                <img alt=''
+                    className='google-map'
+                    src={`https://maps.googleapis.com/maps/api/staticmap?center=${listing?.address},${listing?.city}},${listing?.state}&zoom=13&size=600x300&maptype=roadmap&markers=color:red%7C${listing?.address},${listing?.city},${listing?.state}&key=${API_KEY}`}>
+                </img>
                 <div className="single-listing-address-details">
                     <div className="single-listing-individual-fields">
-                        <div>Street address: {API_KEY}</div> 
+                        <div>Street address: </div> 
                         <div className="single-listing-values">{listing?.address}</div>
                     </div>
                     <div className="single-listing-individual-fields">
