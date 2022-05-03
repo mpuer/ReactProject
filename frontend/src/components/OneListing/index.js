@@ -12,7 +12,6 @@ import CreateReviewModal from "../../components/CreateReviewModal";
 
 const API_KEY = process.env.REACT_APP_MAPS_API_KEY
 
-console.log('this is my key!!!', API_KEY)
 
 const OneListing = () => {
     const dispatch = useDispatch();
