@@ -8,6 +8,7 @@ import ListingViewer from "./components/Listings";
 import OneListing from "./components/OneListing";
 import SplashPage from "./components/SplashHomePage";
 import Footer from "./components/Footer";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
   const sessionUser = useSelector((state) => state.session.user)
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route path="/listings/:id">
             {sessionUser ? <OneListing/> : <Redirect to="/"/>}
+          </Route>
+          <Route>
+            <ErrorPage />
           </Route>
         </Switch>
       )}
